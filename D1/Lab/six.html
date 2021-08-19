@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Summation</title>
+    <script>
+        var arrayFromUser = [];
+
+        for (let i = 0; i < 3; i++) {
+
+            do {
+                var question = Number(prompt('insert your values here'));
+            } while (!Number.isInteger(question));
+
+            arrayFromUser.push(question);
+
+        }
+
+        document.write(`Your result of ${arrayFromUser.join('+')} is = ${eval(arrayFromUser.join('+'))} <br>`);
+        document.write(`Your result of ${arrayFromUser.join('*')} is = ${eval(arrayFromUser.join('*'))} <br>`);
+        document.write(`Your result of ${arrayFromUser.join('/')} is = ${eval(arrayFromUser.join('/'))} <br>`);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+</html>

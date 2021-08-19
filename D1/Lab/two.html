@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Summtion</title>
+    <script>
+
+        var sum = 0;
+
+        do{
+
+            var question = Number(prompt('please insert your numbers you want to summition'));
+
+                sum += question;
+
+        }while(sum != 0 && sum < 100);
+
+        if(sum != NaN){
+            alert(`Your have to write only numbers please refresh page and try again `);
+        }else{
+            alert(`Your summition is : ${sum}`);
+        }
+
+        
+
+
+        // console.log(typeof(0 + 's'))
+
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

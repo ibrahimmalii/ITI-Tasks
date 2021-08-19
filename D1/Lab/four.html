@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Summtion</title>
+    <script>
+        var question = prompt('please type your text here');
+
+        //======================Check if all value is lower or upper case==========================//
+
+        // if(question != question.toLowerCase() || question != question.toUpperCase())
+        // {
+        //     if(confirm('Do You Need Case Sensitive??'))
+        //     {
+        //             alert(question)
+        //     }else
+        //     {
+        //         if(confirm('Do You want to print it as UPPERCASE or not??'))
+        //         {
+        //             alert(question.toUpperCase());
+        //         }else
+        //         {
+        //             alert(question.toLowerCase());
+        //         }
+        //     };
+        // }
+
+        function validatePalin(str) {
+
+            // get the total length of the words  
+            const len = string.length;
+
+            // Use for loop to divide the words into 2 half  
+            for (let i = 0; i < len / 2; i++) {
+
+                // validate the first and last characters are same  
+                if (string[i] !== string[len - 1 - i]) {
+                    alert('It is not a palindrome');
+                }
+            }
+            alert('It is a palindrome');
+        }
+
+        // accept the string or number from the prompt  
+        const string = prompt('Enter a string or number: ');
+
+        const value = validatePalin(string);
+
+        console.log(value);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

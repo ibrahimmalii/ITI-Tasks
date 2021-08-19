@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Summtion</title>
+    <script>
+        var current = new Date()
+        var now = current.toLocaleDateString();
+        do {
+            var qs1 = prompt("write here your name");
+        } while (!isNaN(qs1));
+
+        do {
+            var qs2 = prompt("insert your phone number now");
+        } while (qs2.length != 8);
+
+        do {
+            var qs3 = prompt("insert your mobile number");
+        } while (qs3.length != 11);
+
+        function isEmailValid() {
+            var emailPattern = /^[a-zA-Z0-9]{5}@[a-zA-Z0-9]{2,10}.(es|com|org)$/;
+
+            do {
+                var userEmail = prompt("insert your email address");
+            } while (userEmail.match(emailPattern));
+
+            return userEmail;
+
+        } //End of mail valid
+
+        var qs4 = isEmailValid();
+
+
+
+
+        var x = prompt("please choose color", "blue");
+
+        function writeInfo(x) {
+            document.write("<p style = color:" + x + ">your name is : " + qs1 + " </p>");
+            document.write("<p style = color:" + x + ">your phone number is : " + qs2 + " </p>");
+            document.write("<p style = color:" + x + ">your mobile is : " + qs3 + " </p>");
+            document.write("<p style = color:" + x + ">your email address is : " + qs4 + " </p>");
+            document.write("<p style = color:" + x + ">the date today is : " + now + " </p>");
+        }
+
+        writeInfo(x);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
