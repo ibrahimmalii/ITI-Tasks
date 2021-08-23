@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 1000px;
+            height: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            text-align: center;
+            background-color: gray;
+        }
+        
+        img {
+            width: 800px;
+            height: 500px;
+            border-style: dashed;
+        }
+        
+        input {
+            width: 100px;
+            height: 50px;
+            border-radius: 30px;
+            font-size: 30px;
+            color: black;
+            border: 2px solid black;
+            margin: 20px 30px;
+            background-color: gray;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', ()=> {
+
+            img = document.getElementById('pic');
+            start = document.getElementById('start');
+            next = document.getElementById('next');
+            prev = document.getElementById('prev');
+            stop = document.getElementById('stop');
+            stop.disabled = true;
+
+            var arr = ["./img/1.jpg", "./img/2.jpg", "./img/3.jpg", "./img/4.jpg", "./img/10.jpg"];
+            var i = 0;
+            next.addEventListener('click', ()=> {
+                i++;
+                if (i >= arr.length - 1) i = 0;
+                img.src = arr[i];
+            });
+            prev.addEventListener('click', ()=> {
+                i--;
+                if (i < 0) i = arr.length - 1;
+                img.src = arr[i];
+            })
+            start.addEventListener('click', ()=> {
+                s = setInterval(()=> {
+                    i++;
+                    if (i >= arr.length - 1) i = 0;
+                    img.src = arr[i];
+                }, 1000)
+                stop.disabled = false;
+            })
+            stop.addEventListener('click', ()=> {
+                if (start.checked == false) clearInterval(s);
+                start.disabled = false;
+                stop.disabled = true;
+
+            })
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <img src="./img/1.jpg" id="pic"><br>
+        <input type="button" id="start" value="start">
+        <input type="button" id="next" value="next">
+        <input type="button" id="prev" value="prev">
+        <input type="button" id="stop" value="stop">
+    </div>
+</body>
+
+</html>

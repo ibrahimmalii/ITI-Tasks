@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regestier</title>
+    <style>
+        table{
+            background-color: lightgray;
+            margin:10px auto;
+            text-align: center;
+        }
+
+        textarea{
+            width: 100%;
+        }
+
+        input{
+            border:none;
+            background-color:lightgoldenrodyellow;
+        }
+        input:focus{
+            border:1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" action="showInfo.html">
+        <table>
+            <tr>
+                <td>
+                    <label>User Name</label>
+                </td>
+                <td>
+                    <input type='text' name="userName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email</label>
+                </td>
+                <td>
+                    <input type='email' name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password</label>
+                </td>
+                <td>
+                    <input type='password' name="password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Phone</label>
+                </td>
+                <td>
+                    <input type='number' name="phone">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Gender</label>
+                </td>
+                <td>
+                    <input type='radio' name="gender" value="male"> Male 
+                    <input type='radio' name="gender" value="female"> Female 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Address</label>
+                </td>
+                <td>
+                    <input type='text' name="address">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Job Title</label>
+                </td>
+                <td>
+                    <textarea name="jobTitle" style="resize: none; width:97%"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Submit</button>
+                    <button type="reset">Reset</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

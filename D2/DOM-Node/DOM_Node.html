@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <style>
+        .center {
+            text-align: center;
+        }
+
+    </style>
+    <script>
+        window.addEventListener('load' , function(){
+
+            //target all elements 
+            var header = document.getElementById('header');
+            var targetNavigation = document.getElementById('navigation');
+            var targetUl = document.getElementById('nav');
+
+            //================== to clone header ==================// 
+            var clonedHeader = header.cloneNode(true);
+            document.body.appendChild(clonedHeader);
+
+            //============ change position =============//
+            header.style.textAlign = 'right';
+            targetUl.style.listStyle = 'circle';
+            targetUl.style.listStyle = 'inside';
+
+
+
+        })//End Of Load Event
+    </script>
+</head>
+
+<body>
+    <div class="center">
+        <div id="header">
+            <img src="dom.jpg" alt="hello..it rains over here:)" />
+        </div>
+        <div id="navigation">
+            <ul id="nav">
+                <li><strong>Memo</strong></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Clients</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+
+
+</html>

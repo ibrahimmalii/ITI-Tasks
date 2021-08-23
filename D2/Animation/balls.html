@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid yellow;
+            background-color: lightgray;
+            margin: 30px auto;
+            display: inline-block;
+        }
+
+        .active {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+
+            var index = 1;
+
+            //target elements we need to swich for it 
+            var targetDiv1 = document.getElementById('ball1');
+            var targetDiv2 = document.getElementById('ball2');
+            var targetDiv3 = document.getElementById('ball3');
+
+            //target all divs
+            var allDivs = document.getElementsByTagName('div');
+
+            // Condition to stop or clear interval 
+            for (let i = 0; i < allDivs.length; i++) {
+                allDivs[0].addEventListener('mouseenter', (e) => {
+                    console.log(e.target);
+                    clearInterval(t);
+                });
+            }
+
+            for (let i = 0; i < allDivs.length; i++) {
+                allDivs[0].addEventListener('mouseout', (e) => {
+                    t = setInterval( changeColor , 1000);
+                });
+            }
+
+
+
+            //======================== Step By Step ==================//
+            function changeColor() {
+
+                switch (index) {
+                    case 1:
+                        targetDiv1.style.backgroundColor = "orange";
+                        targetDiv2.style.backgroundColor = "lightgray";
+                        targetDiv3.style.backgroundColor = "lightgray";
+                        break;
+                    case 2:
+                        targetDiv1.style.backgroundColor = "lightgray";
+                        targetDiv2.style.backgroundColor = "orange";
+                        targetDiv3.style.backgroundColor = "lightgray";
+                        break;
+                    case 3:
+                        targetDiv1.style.backgroundColor = "lightgray";
+                        targetDiv2.style.backgroundColor = "lightgray";
+                        targetDiv3.style.backgroundColor = "orange";
+                        break;
+                    default:
+                        index = 0;
+                }
+
+                index++
+            }
+            
+            t = setInterval( changeColor , 1000);
+
+        })//End of load event
+    </script>
+</head>
+
+<body>
+    <div id="ball1"></div>
+    <div id="ball2"></div>
+    <div id="ball3"></div>
+</body>
+
+</html>

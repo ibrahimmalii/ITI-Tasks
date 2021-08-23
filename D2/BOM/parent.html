@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent</title>
+    <style>
+        button{
+            display: block;
+            margin-bottom: 5px;
+            width: 150px;
+            border-radius: 20px;
+            border:none;
+            cursor: pointer;
+        }
+
+        #showMessage{
+            display:inline;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function(){
+
+            //target buttons
+            let open = document.getElementById('open');
+            let close = document.getElementById('close');
+            let stop = document.getElementById('stop');
+            let message = document.getElementById('message');
+            let showMessage = document.getElementById('showMessage');
+            let scroll = document.getElementById('scroll');
+
+
+            //function to open child 
+            function openChild(){
+                child = window.open('child.html','', 'width=500,height=200');
+            }
+
+            //add event clicks and movements
+            function changeChildPosition(){}
+            open.addEventListener('click' ,  () => {
+                openChild()
+                t = setInterval(() => {
+                    child.moveTo(0 , 700);
+                }, 1000);
+                t = setInterval(() => {
+                    child.moveTo(0 , -700);
+                }, 2000);
+            });
+
+
+            stop.addEventListener('click' , ()=>{
+                clearInterval(t);
+                child.focus();
+            });
+
+            close.addEventListener('click' , () => {
+                child.close();
+            });
+
+
+            //=================== show message in child ==============//
+            showMessage.addEventListener('click' , () =>{
+                childWindow = window.open('child.html' , '' , 'width=300, height=300');
+                childWindow.document.write(`<h1>${message.value}</h1>`);
+                setTimeout(() => {
+                    childWindow.close();
+                }, 3000);
+            });
+
+
+            //================== Open And Scroll ====================//
+            scroll.addEventListener('click' , ()=>{
+                openChild();
+                setInterval(function(){child.scrollBy(5,50)} , 1000);
+            })
+
+        })// End of loading page
+    </script>
+</head>
+<body>
+    <button id="open">Open child</button>
+    <button id="close">Close child</button>
+
+    <!-- move child  -->
+    <button id="stop">Stop Movement</button>
+
+    <!-- open with scroll  -->
+    <button id="scroll">Open And Scroll</button>
+
+    <!-- show messages -->
+    <input type="text" id="message">
+    <button id="showMessage">Show Message</button>
+
+
+</body>
+</html>
