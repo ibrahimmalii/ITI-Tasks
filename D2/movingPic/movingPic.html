@@ -46,11 +46,12 @@
                     top.setAttribute('style', `top :${topPosition += 1}%`);
                     right.setAttribute('style', `right :${rightPosition += 1}%`);
                     left.setAttribute('style', `left :${leftPosition += 1}%`);
-                    console.log(topPosition);
+
                     if (topPosition == 90) {
                         clearInterval(t);
                         moveFromEndToStart();
                     };
+                    
                 }, 20)
             };
 
@@ -59,11 +60,12 @@
                     top.setAttribute('style', `top :${topPosition -= 1}%`);
                     right.setAttribute('style', `right :${rightPosition -= 1}%`);
                     left.setAttribute('style', `left :${leftPosition -= 1}%`);
-                    console.log(topPosition);
+
                     if (topPosition == 0) {
                         clearInterval(t);
                         moveFromStartToEnd();
                     };
+
                 }, 20)
             }
 

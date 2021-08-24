@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>--- Text Style ---</title>
+
+    <style type="text/css">
+        table#Text {
+            width: 550px;
+            border-collapse: collapse;
+        }
+        
+        table#Text tr {
+            vertical-align: top;
+        }
+        
+        #PAR {
+            font-family: times new roman;
+            font-size: 11pt;
+            width: 550px;
+            border: 3px solid white;
+            padding: 10;
+            text-align: left;
+            margin: 20px auto;
+        }
+        
+        table#Text td {
+            font-family: times new roman;
+            font-size: 11pt;
+        }
+        
+        table {
+            margin: auto;
+        }
+    </style>
+    <script>
+        targetpargrap = document.getElementById('PAR')
+
+        function ChangeFont() {
+            var radios = document.getElementsByClassName('one')
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    this.document.getElementById('PAR').style.fontFamily = radios[i].value
+                }
+            }
+        }
+
+        function ChangeAlign() {
+            var targeralign = document.getElementsByClassName('two')
+            for (let i = 0; i < targeralign.length; i++) {
+                if (targeralign[i].checked) {
+                    this.document.getElementById('PAR').style.textAlign = targeralign[i].value
+                }
+            }
+        }
+
+        function ChangeHeight() {
+            var targetlinehight = document.getElementsByClassName('three');
+            for (let i = 0; i < targetlinehight.length; i++) {
+                if (targetlinehight[i].checked) {
+                    this.document.getElementById('PAR').style.lineHeight = targetlinehight[i].value
+                }
+            }
+        }
+
+        function ChangeLSpace() {
+            var targetspace = document.getElementsByClassName('four')
+            for (let i = 0; i < targetspace.length; i++) {
+                if (targetspace[i].checked) {
+                    this.document.getElementById('PAR').style.letterSpacing = targetspace[i].value
+                }
+            }
+        }
+
+        function ChangeIndent() {
+            var targetchangspace = document.getElementsByClassName('five')
+            for (let i = 0; i < targetchangspace.length; i++) {
+                if (targetchangspace[i].checked) {
+                    this.document.getElementById('PAR').style.textIndent = targetchangspace[i].value
+                }
+            }
+        }
+
+        function ChangeTransform() {
+            var targettransform = document.getElementsByClassName('six')
+            for (let i = 0; i < targettransform.length; i++) {
+                if (targettransform[i].checked) {
+                    this.document.getElementById('PAR').style.textTransform = targettransform[i].value
+                }
+            }
+        }
+
+        function ChangeDecorate() {
+            var targetdecoration = document.getElementsByClassName('seven')
+            for (let i = 0; i < targetdecoration.length; i++) {
+                if (targetdecoration[i].checked) {
+                    this.document.getElementById('PAR').style.textDecoration = targetdecoration[i].value
+                }
+            }
+        }
+
+        function ChangeBorder() {
+            var targerborder = document.getElementsByClassName('eight')
+            for (let i = 0; i < targerborder.length; i++) {
+                if (targerborder[i].checked) {
+                    this.document.getElementById('PAR').style.borderStyle = targerborder[i].value
+                }
+            }
+        }
+
+        function ChangeBorderColor() {
+            var targetcolorborder = document.getElementsByClassName('nine')
+            for (let i = 0; i < targetcolorborder.length; i++) {
+                if (targetcolorborder[i].checked) {
+                    this.document.getElementById('PAR').style.borderColor = targetcolorborder[i].value
+                    console.log(targetcolorborder[i].value)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <p id="PAR">
+        Here is a paragraph of text that has various alignment characteristics that can be changed dynamically. Click the radio buttons below to view combinations of text style settings.
+    </p>
+
+    <table id="Text" border="1">
+        <tr>
+            <td>
+                <b>fontFamily</b><br />
+                <input type="radio" name="Font" class='one' value="arial" onclick="ChangeFont()" checked />arial<br />
+                <input type="radio" name="Font" class='one' value="couier" onclick="ChangeFont()" />courier<br />
+                <input type="radio" name="Font" class='one' value="georgia" onclick="ChangeFont()" />georgia<br />
+                <input type="radio" name="Font" class='one' value="impact" onclick="ChangeFont()" />impact<br />
+                <input type="radio" name="Font" class='one' value="times" onclick="ChangeFont()" />times new roman<br />
+                <input type="radio" name="Font" class='one' value="verdana" onclick="ChangeFont()" />verdana<br />
+            </td>
+
+            <td>
+                <b>textAlign</b><br>
+                <input type="radio" name="Align" class="two" value="left" onclick="ChangeAlign()" checked />left<br />
+                <input type="radio" name="Align" class="two" value="center" onclick="ChangeAlign()" />center<br />
+                <input type="radio" name="Align" class="two" value="right" onclick="ChangeAlign()" />right<br />
+                <input type="radio" name="Align" class="two" value="justify" onclick="ChangeAlign()" />justify<br />
+            </td>
+            <td>
+                <b>lineHeight</b><br>
+                <input type="radio" name="Height" class="three" value="normal" onclick="ChangeHeight('normal')" checked />normal<br />
+                <input type="radio" name="Height" class="three" value="10px" onclick="ChangeHeight('10px')" />10px<br />
+                <input type="radio" name="Height" class="three" value="15px" onclick="ChangeHeight('15px')" />15px<br />
+                <input type="radio" name="Height" class="three" value="1.5" onclick="ChangeHeight('1.5')" />1.5<br />
+            </td>
+            <td>
+                <b>letterSpacing</b><br>
+                <input type="radio" name="Lspace" class="four" value="normal" onclick="ChangeLSpace('normal')" checked />normal<br />
+                <input type="radio" name="Lspace" class="four" value="-1px" onclick="ChangeLSpace('-1px')" />-1px<br />
+                <input type="radio" name="Lspace" class="four" value="2px" onclick="ChangeLSpace('2px')" />2px<br />
+                <input type="radio" name="Lspace" class="four" value="3px" onclick="ChangeLSpace('3px')" />3px<br />
+            </td>
+            <td>
+                <b>textIndent</b><br>
+                <input type="radio" name="Indent" class="five" value="0px" onclick="ChangeIndent('0px')" checked />0px<br />
+                <input type="radio" name="Indent" class="five" value="5px" onclick="ChangeIndent('5px')" />5px<br />
+                <input type="radio" name="Indent" class="five" value="15px" onclick="ChangeIndent('15px')" />15px<br />
+                <input type="radio" name="Indent" class="five" value="25pxgh" onclick="ChangeIndent('25px')" />25px<br />
+            </td>
+            <td>
+                <b>textTransform</b><br>
+                <input type="radio" name="Transform" class="six" value="none" onclick="ChangeTransform('none')" checked />none<br />
+                <input type="radio" name="Transform" class="six" value="capitalize" onclick="ChangeTransform('capitalize')" />capitalize<br />
+                <input type="radio" name="Transform" class="six" value="uppercase" onclick="ChangeTransform('uppercase')" />uppercase<br />
+                <input type="radio" name="Transform" class="six" value="lowercase" onclick="ChangeTransform('lowercase')" />lowercase<br />
+            </td>
+            <td>
+                <b>textDecoration</b><br>
+                <input type="radio" name="Decorate" class="seven" value="line-through" onclick="ChangeDecorate('line-through')" />line-through<br />
+                <input type="radio" name="Decorate" class="seven" value="none" onclick="ChangeDecorate('none')" checked />none<br />
+                <input type="radio" name="Decorate" class="seven" value="overline" onclick="ChangeDecorate('overline')" />overline<br />
+                <input type="radio" name="Decorate" class="seven" value="underline" onclick="ChangeDecorate('underline')" />underline<br />
+            </td>
+            <td>
+                <b>textBorder</b><br>
+                <input type="radio" name="Border" class="eight" value="none" onclick="ChangeBorder('none')" checked />none<br />
+                <input type="radio" name="Border" class="eight" value="dotted" onclick="ChangeBorder('dotted')" />dotted<br />
+                <input type="radio" name="Border" class="eight" value="dotted" onclick="ChangeBorder('dotted')" />dotted<br />
+                <input type="radio" name="Border" class="eight" value="double" onclick="ChangeBorder('double')" />double<br />
+                <input type="radio" name="Border" class="eight" value="groove" onclick="ChangeBorder('groove')" />groove<br />
+                <input type="radio" name="Border" class="eight" value="dashed" onclick="ChangeBorder('dashed')" />dashed<br />
+                <input type="radio" name="Border" class="eight" value="insert" onclick="ChangeBorder('insert')" />insert<br />
+                <input type="radio" name="Border" class="eight" value="solid" onclick="ChangeBorder('solid')" />solid<br />
+                <input type="radio" name="Border" class="eight" value="outset" onclick="ChangeBorder('outset')" />outset<br />
+                <input type="radio" name="Border" class="eight" value="ridge" onclick="ChangeBorder('ridge')" />ridge<br />
+            </td>
+            <td>
+                <b>Bordercolor</b><br>
+                <input type="radio" name="BorderColor" class='nine' value="black" onclick="ChangeBorderColor()" checked />none<br />
+                <input type="radio" name="BorderColor" class='nine' value="pink" onclick="ChangeBorderColor()" />pink<br />
+                <input type="radio" name="BorderColor" class='nine' value="red" onclick="ChangeBorderColor()" />red<br />
+                <input type="radio" name="BorderColor" class='nine' value="green" onclick="ChangeBorderColor()" />green<br />
+                <input type="radio" name="BorderColor" class='nine' value="blue" onclick="ChangeBorderColor()" />blue<br />
+                <input type="radio" name="BorderColor" class='nine' value="yellow" onclick="ChangeBorderColor()" />yellow<br />
+                <input type="radio" name="BorderColor" class='nine' value="purple" onclick="ChangeBorderColor()" />purple<br />
+            </td>
+
+    </table>
+
+
+
+</body>
+
+</html>
