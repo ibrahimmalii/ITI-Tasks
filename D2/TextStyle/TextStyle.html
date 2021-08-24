@@ -36,9 +36,36 @@
     </style>
     <script>
 
+        sara = document.getElementsByName('BorderColor');
+        // console.log(sara);
+
+        var calling = (()=>{
+            console.log('welcome sara');
+            for(var i = 0 ; i < sara.length ; i++){
+                if(sara[i].checked){
+                    alert('hi from checked');
+                }
+            }
+        })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Target All Arrays With Class Name 
             
-        targetpargrap = document.getElementById('PAR');
+        var targetpargrap = document.getElementById('PAR');
         var radios = document.getElementsByName('Font');
         var targeralign = document.getElementsByName('Align');
         var targetlinehight = document.getElementsByName('Height');
@@ -47,7 +74,7 @@
         var targettransform = document.getElementsByName('Transform');
         var targetdecoration = document.getElementsByName('Decorate');
         var targerborder = document.getElementsByName('Border');
-        var targetcolorborder = document.getElementsByName('BorderColor');
+        // var targetcolorborder = document.getElementsByName('BorderColor');
 
         //======================== Array To Collect All Properties =======================//
         var styles = [];
@@ -141,7 +168,7 @@
             </td>
             <td>
                 <b>Bordercolor</b><br>
-                <input type="radio" name="BorderColor" value="black" onclick="targetAndChange('border-color' , targetcolorborder)"  />none<br />
+                <input type="radio" name="BorderColor" value="black" onclick="targetAndChange('border-color' , targetcolorborder)" checked />none<br />
                 <input type="radio" name="BorderColor" value="pink" onclick="targetAndChange('border-color' , targetcolorborder)" />pink<br />
                 <input type="radio" name="BorderColor" value="red" onclick="targetAndChange('border-color' , targetcolorborder)" />red<br />
                 <input type="radio" name="BorderColor" value="green" onclick="targetAndChange('border-color' , targetcolorborder)" />green<br />
