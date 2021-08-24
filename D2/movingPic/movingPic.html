@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Pics</title>
+    <style>
+        div {
+            position: absolute;
+        }
+
+        #top {
+            left: 50%;
+            /* top: 95% */
+        }
+
+        #right {
+            top: 50%;
+            right: 0
+        }
+
+        #left {
+            top: 50%;
+            left: 0
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+
+            //========== Target All Element ============//
+            var top = document.getElementById('top');
+            var left = document.getElementById('left');
+            var right = document.getElementById('right');
+            var start = document.getElementById('start');
+            var stop = document.getElementById('stop');
+
+
+            var topPosition = 0;
+            var rightPosition = 0;
+            var leftPosition = 0;
+
+            function moveFromStartToEnd() {
+                t = setInterval(function () {
+                    top.setAttribute('style', `top :${topPosition += 1}%`);
+                    right.setAttribute('style', `right :${rightPosition += 1}%`);
+                    left.setAttribute('style', `left :${leftPosition += 1}%`);
+                    console.log(topPosition);
+                    if (topPosition == 90) {
+                        clearInterval(t);
+                        moveFromEndToStart();
+                    };
+                }, 20)
+            };
+
+            function moveFromEndToStart(){
+                t = setInterval(function () {
+                    top.setAttribute('style', `top :${topPosition -= 1}%`);
+                    right.setAttribute('style', `right :${rightPosition -= 1}%`);
+                    left.setAttribute('style', `left :${leftPosition -= 1}%`);
+                    console.log(topPosition);
+                    if (topPosition == 0) {
+                        clearInterval(t);
+                        moveFromStartToEnd();
+                    };
+                }, 20)
+            }
+
+            start.addEventListener('click', () => {
+                moveFromStartToEnd();
+            });
+
+            stop.addEventListener('click', () => {
+                clearInterval(t);
+            })
+
+
+
+
+        })//End of load event 
+    </script>
+</head>
+
+<body>
+    <div id="top">
+        <img src="./img/TOP.JPG">
+    </div>
+    <div id="right">
+        <img src="./img/icon2.gif">
+    </div>
+    <div id="left">
+        <img src="./img/icon1.gif">
+    </div>
+
+
+    <div id="controll">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </div>
+</body>
+
+</html>
