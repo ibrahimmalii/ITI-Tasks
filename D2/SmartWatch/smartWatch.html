@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Watch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        * {
+            font-family: Montserrat
+        }
+
+        #watch {
+            position: relative;
+        }
+
+
+        img {
+            /* position:relative; */
+            width: 100%;
+            height: 100%;
+        }
+
+
+        #watch #counter {
+            position: absolute;
+            top: 44%;
+            left: 41%;
+            color: white;
+        }
+
+        #watch #heartContainer {
+            position: absolute;
+            display: none;
+            top: 32%;
+            left: 36%;
+            font-size: 35px;
+            color: rgb(74 68 68);
+        }
+
+        #heart{
+
+        }
+
+        #watch #heartContainer:hover {
+            cursor: pointer;
+            color: whitesmoke;
+        }
+
+
+        .color {
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', () => {
+
+            const colors = ['#CA3D22', 'black', '#565681', '#E9C7BE'];
+            const watches = ['./img/1.png', './img/2.png', './img/3.png', './img/4.png']
+            var currentImg = document.querySelector('#watch img');
+            var counter = document.querySelector('#watch span');
+            var heartContainer = document.getElementById('heartContainer');
+            var heart = document.getElementById('heart');
+            var startHeartRate = document.getElementById('heartRate');
+            var startTime = document.getElementById('time');
+
+            heartContainer.style.display = 'none';
+
+            //Target All Elements
+            var allColorDivs = document.getElementsByClassName('color');
+
+            // Set All Colors And Target It 
+            for (let i = 0; i < allColorDivs.length; i++) {
+                allColorDivs[i].style.backgroundColor = colors[i];
+                allColorDivs[i].addEventListener('click', (e) => {
+                    currentImg.src = watches[i];
+                })
+            }
+
+
+            //how to set countdown
+            starttimehours = 10;
+            starttimeminutes = 30;
+            time = starttimeminutes * 60;
+            var count = setInterval(function () {
+                hours = Math.floor(starttimehours);
+                minutes = Math.floor(time / 60);
+                seconds = time % 60;
+                counter.innerHTML = hours + ":" + minutes + ":" + seconds
+                time++;
+            }, 1000);
+
+
+            function changeHeartStatus() {
+
+                heart.style.fontSize = (heart.style.fontSize == '35px') ? '40px' : '35px';
+                console.log(heart.style.fontSize)
+            }
+
+            startHeartRate.addEventListener('click', () => {
+                counter.style.display = 'none';
+                heartContainer.style.display = 'block';
+                t = setInterval(changeHeartStatus, 800);
+            });
+
+            startTime.addEventListener('click', () => {
+                counter.style.display = 'block';
+                heartContainer.style.display = 'none';
+                clearInterval(t);
+            })
+
+
+
+
+
+        })//End Of Load Event 
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4">
+                <div id="watch" class="text-center">
+                    <span id="counter" class="fw-bold h5">10:30:0</span>
+                    <div id="heartContainer">
+                        <span id="heart" class="">&hearts;</span><br>
+                        <span class="small fw-bold">welcome</span>
+                    </div>
+                    <img src="./img/1.png">
+                </div>
+            </div>
+            <div class="col-8">
+                <p class="h1 fw-bold">FitBit 20 - The Smartest Watch</p>
+                <p class="small mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ut fuga vel itaque
+                    quaerat numquam temporibus maiores neque officiis animi deleniti, commodi ab suscipit tempora alias
+                    voluptate eum. Numquam, eaque.
+                </p>
+                <p class="h5 fw-bold">Select Color</p>
+                <div class="colors d-flex text-center mb-5">
+                    <div class="color mx-2" value="blue" id="c1"></div>
+                    <div class="color mx-2" value="purple" id="c2"></div>
+                    <div class="color mx-2" value="pink" id="c3"></div>
+                    <div class="color mx-2" value="black" id="c4"></div>
+                </div>
+
+                <p class="h5 fw-bold">Features</p>
+                <div class="features d-flex mb-5">
+                    <button id="time" class="btn btn-secondary mx-2">Time</button>
+                    <button id="heartRate" class="btn btn-secondary mx-2">Heart Rate</button>
+                </div>
+
+                <div class="buy">
+                    <button class="btn btn-danger mx-2 px-3 fw-bold">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
