@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="jquery.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+
+            //=========================================== AJAX CALL USING JS ==============================//
+            // var btn = document.getElementsByTagName('button')[0];
+            // var divContent = document.getElementsByTagName('div')[0];
+            // res = '';
+
+            // btn.addEventListener('click', () => {
+            //     console.log(`Click Event Fire :)`);
+
+            //     var xhr = new XMLHttpRequest();
+
+
+
+            //     xhr.onreadystatechange = function () {
+            //         console.log('AJAX Call Started');
+            //         if (xhr.readyState == 4) {
+            //             console.log('ready state Done');
+            //             if (xhr.status == 200) {
+            //                 console.log('status 200 : OK')
+            //                 res = xhr.responseText;
+            //                 console.log(res);
+            //                 divContent.innerHTML = res;
+            //             };
+            //         }
+            //         else {
+            //             console.log('field to get response');
+            //         }
+            //     }
+
+            //     xhr.open('Get', 'inf.txt');
+            //     xhr.open('GET', 'information.json');
+
+            // })//end of click event 
+
+
+                //================================= USING JQUERY ==============================//
+                $('#btn').click(function () {
+                    $.ajax({
+                        // url: 'information.json',
+                        // dataType: 'json',
+                        
+                        url: 'inf.txt',
+                        method: 'GET',
+                        dataType: 'html',
+                        success: data => {
+                            console.log(data);
+                            $('#div').html(data);
+                        },
+                        error: error => console.error
+                    })
+                })
+                //=============================== END OF AJAX CALL ======================//
+
+
+
+
+        })//End of load event
+    </script>
+</head>
+
+<body>
+    <button id="btn">Call AJAX</button>
+    <div id="div"></div>
+</body>
+
+</html>

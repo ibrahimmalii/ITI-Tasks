@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESULT</title>
+    <script>
+
+        window.addEventListener('load', function () {
+
+
+            var image = document.getElementsByTagName('img')[0];
+            var span = document.getElementsByTagName('span')[0];
+
+            var splitedCookies = document.cookie.split(';')
+            var userName = splitedCookies[0].split('=');
+            var age = splitedCookies[1].split('=');
+            var gender = splitedCookies[2].split('=');
+            var imgSrc = splitedCookies[3].split('=');
+            var color = splitedCookies[4].split('=');
+            var num = splitedCookies[5].split('=');
+
+
+            image.src = `${imgSrc[1]}`;
+            span.innerText = `Welcome ${userName[1]} Your Age Is ${age[1]} And You Visit Our Website ${num[1]}`;
+            span.style.color = `${color[1]}`
+            // span.innerText ='welcome'
+
+
+
+            //check for Navigation Timing API support
+            if (window.performance) {
+                console.info("window.performance works fine on this browser");
+            }
+
+            console.info(performance.navigation.type);
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+                // console.info("This page is reloaded");
+                currentNumberOfVisits = Number(num[1]);
+                document.cookie = `num=${currentNumberOfVisits + 1}`;
+            } else {
+                // console.info("This page is not reloaded");
+                document.cookie = "num=2";
+            }
+
+        })
+    </script>
+</head>
+
+<body>
+    <img>
+    <span></span>
+</body>
+
+</html>

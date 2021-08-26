@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyCode</title>
+    <script>
+        window.addEventListener('load', () => {
+
+            var targetInput = document.getElementsByTagName('input')[0];
+            var targetSpan = document.getElementsByTagName('span')[0];
+
+            targetInput.addEventListener('keydown', (e) => {
+                if (e.keyCode <= 18 && e.keyCode >= 16) {
+                    alert(`You Can't Print This Key`);
+                } else {
+                    targetSpan.innerText = `Your Asci Code Is ${e.keyCode}`;
+                }
+            });
+
+
+            //==================== TO PREVENT DEFAULT FOR CONTEXTMENU=============
+            window.oncontextmenu = () => {
+                alert(`YOU CAN'T SHOW THIS MENU`);
+                return false;
+            };
+
+
+
+            //=================== TO PREVENT SUBMITTION AND RESET ==============================//
+            var userName = document.getElementById('userName');
+            var password = document.getElementById('password');
+            var submit = document.getElementById('submit');
+            var reset = document.getElementById('reset');
+
+            document.forms[0].addEventListener('submit', (e) => {
+                if (!confirm('Are You Sure??')) e.preventDefault();
+            });
+
+            // setTimeout(document.forms[0].addEventListener('submit' , function(e){
+            //     if(!confirm('Are You Sure??')) e.preventDefault();
+            // }), 5000);
+
+            console.log(userName.value.length);
+            if (userName.value.length == 0 && password.value.length == 0) {
+                setTimeout(function () {
+                    console.log('from settimeout');
+                }, 5000);
+            }
+
+
+            function subm() {
+                console.log('from subm');
+                document.forms[0].addEventListener('submit', (e) => {
+                    if (!confirm('Are You Sure??')) e.preventDefault();
+                });
+            }
+
+            subm();
+
+
+
+        })//END OF LOAD EVENT 
+
+    </script>
+</head>
+
+<body>
+    <!-- input to show asci key   -->
+    <input type="text">
+    <span></span>
+
+    <!-- Form To Check Submit   -->
+    <form method="get" target="keycode.html">
+        <table align="center" border="1" cellPadding="5" style="text-align: center;">
+            <tr>
+                <td>
+                    <label>User Name</label>
+                </td>
+                <td>
+                    <input type="text" id="userName" name="userName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Password</label>
+                </td>
+                <td>
+                    <input type="password" id="password" name="password">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" value="submit">
+                        Submit
+                    </button>
+                    <button type="reset" value="reset">
+                        Reset
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

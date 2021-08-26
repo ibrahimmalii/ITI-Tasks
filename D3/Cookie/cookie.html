@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookies</title>
+    <script>
+
+        window.addEventListener('load', () => {
+
+
+            //============================ Get all inputs to set cookies ==================================//
+            var userName = document.getElementById('userName');
+            var age = document.getElementById('age');
+            var gender = document.getElementsByName('gender');
+            var images = document.images;
+            var color = document.getElementById('color');
+            var submit = document.getElementById('submit');
+            var reset = document.getElementById('reset');
+
+
+            //======================= MAKE COOKIE CLASS ===================//
+            class Cookie {
+                #cookieName = '';
+                #cookieValue = '';
+
+                setCookie(cookieName, cookieValue) {
+                    document.cookie = `${cookieName}=${cookieValue}`;
+                }
+
+                getCookie(cookieName) {
+                    if (document.cookie.split(';')) {
+
+                        //Get all cookies into arrays
+                        var cookieArr = document.cookie.split(';');
+
+                        //loop for all cookies 
+                        for (let i = 0; i < cookieArr.length; i++) {
+
+                            //Get each element alone into array => [name , value]
+                            var elementsArr = cookieArr[i].split('=');
+                            for (let i = 0; i < elementsArr.length; i++) {
+                                if (elementsArr[0] == 'num') {
+                                    
+                                }
+                            }
+                        }
+
+                    } else {
+                        var element = document.cookie.split('=');
+                        if (name == element[0]) {
+                            console.log(element);
+                        }
+                    }
+                }
+            }
+
+            var childCookie = new Cookie()
+
+            submit.addEventListener('click', () => {
+
+
+                if (userName.value != 0) {
+                    childCookie.setCookie('name', userName.value);
+                }
+
+                if (age.value != 0) {
+                    childCookie.setCookie('age', age.value);
+                }
+
+                for (let i = 0; i < gender.length; i++) {
+                    if (gender[i].checked && gender[i].value == 'male') {
+                        console.log(gender[i]);
+                        childCookie.setCookie('gender', gender[i].value);
+                        childCookie.setCookie('genderImg', images[0].src);
+                    }else if(gender[i].checked && gender[i].value == 'female'){
+                        childCookie.setCookie('gender', gender[i].value);
+                        childCookie.setCookie('genderImg', images[1].src);
+                    }
+                }
+
+                childCookie.setCookie('color', color.value);
+
+                document.cookie = "num=1";
+
+
+            })
+
+        })//END OF LOAD EVENT 
+    </script>
+</head>
+
+<body>
+    <!-- Form To Check Submit   -->
+    <!-- <form method="get"> -->
+    <table align="center" border="1" cellPadding="5" style="text-align: center;">
+        <tr>
+            <td>
+                <label>User Name</label>
+            </td>
+            <td>
+                <input type="text" id="userName" name="userName">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Age</label>
+            </td>
+            <td>
+                <input type="text" id="age" name="age">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Gender</label>
+            </td>
+            <td>
+                <input type="radio" value="male" id="male" name="gender"> Male <img src="./img/1.jpg">
+                <input type="radio" value="female" id="male" name="gender"> Female <img src="./img/2.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Color</label>
+            </td>
+            <td>
+                <select id="color" name="color">
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="green">Green</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <a href="result.html" id="submit">
+                    Submit
+                </a>
+                <button type="reset" value="reset">
+                    Reset
+                </button>
+            </td>
+        </tr>
+    </table>
+    <!-- </form> -->
+</body>
+
+</html>
