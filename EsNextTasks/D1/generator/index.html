@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', () => {
+
+            // 10 Tips 
+            // // function* number() {
+            // //     var num = 10;
+            // //     while (true) {
+            // //         yield num--;
+            // //     }
+            // // }
+            // var gen = number();
+            // document.getElementById('two').addEventListener('click' ,setInterval(() => {
+            //     document.write(gen.next().value + '<br>');
+            // }, 1000));
+
+
+            // function * generated(){
+            //     yield*['one' , 'two' , 'three' , 'four' , 'five' , 'six'];
+            // };
+            // let arr = [1,3,5,6,6,7];
+            // var gen = generated();
+            // document.getElementById('one').addEventListener('click',function loop() {
+            //     for (x of arr) {
+            //         document.write(gen.next().value + '<br>');
+            //     };
+            // } )
+
+
+
+        })// End Of Load Event
+    </script>
+</head>
+
+<body>
+    <button id="one">
+        Loop Using For Of
+    </button>
+    <button id="two">
+        Loop Using SetInterval
+    </button>
+</body>
+
+</html>

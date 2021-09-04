@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener('load', function () {
+
+            // in this example All buttons Will Print Same Value ==> 9 
+            document.write('<h1>In This Example All buttons Will Print Same Value ==> 9 </h1>');
+            function btnn() {
+                var i;
+                for (var i = 0; i < 9; i++) {
+                    var btn = document.createElement('input');
+                    btn.setAttribute("type", "button");
+                    btn.value = "input : " + i;
+                    btn.onclick = (function () {
+                        return function () {
+                            alert("you are click on : " + i)
+                        }; // all button will gave the same result but we need to closure that
+                    }())
+                    window.document.body.appendChild(btn);
+                }
+            }
+            btnn()
+
+
+
+
+
+            //========== To Solve This Problem =================//
+            document.write('<h1>To Solve This Proplem</h1>');
+            document.write('<p>Please Check The Code </p>');
+
+            function btnOne() {
+                var i;
+                for (var i = 0; i < 9; i++) {
+                    var btn = document.createElement('input');
+                    btn.setAttribute("type", "button");
+                    btn.value = "input : " + i;
+                    btn.onclick = (function (x) { //we write (x) because we need to closure (i) so we make x replace the value of i
+                        return function () {
+                            alert("now you input in : " + x)
+                        } //now all btn will gave his number of result
+                    }(i)) //we make function self invoke and pass to it ==> value of current (i)
+                    window.document.body.appendChild(btn);
+                }
+            }
+            btnOne()
+
+            document.write('<p>Also We Can Use Let Or Const To Solve Hoisted Variable</p>')
+
+
+        }) // End of load page
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

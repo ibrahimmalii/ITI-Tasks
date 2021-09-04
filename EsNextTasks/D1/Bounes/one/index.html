@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping</title>
+</head>
+
+<body>
+
+    <script>
+        let map = new Map();
+        map.set('monday', 'monday');
+        map.set('tuseday', 'tuseday');
+        map.set('wednesday', 'wednesday');
+        map.set('thursday', 'thursday');
+        map.set('friday', 'friday');
+        map.set('saturday', 'saturday');
+        map.set('sunday', 'sunday');
+
+        let currentDay = new Date();
+        var counter = 1;
+        for (i of map) {
+            if (currentDay.getDay() == counter) 
+                alert(`Current Day Is ${map.get(i[0])}`);
+            
+
+            counter++
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

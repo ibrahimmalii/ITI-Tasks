@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping</title>
+    <script>
+        window.addEventListener('load', () => {
+
+            //============================ Set Values Of Map =====================//
+            let stdMap = new Map();
+            stdMap.set('Ali', {
+                Grades: [
+                    { Coursename: "JavaScript", Grade: "Excellent" },
+                    { Coursename: "Jquery", Grade: "V.Good" },
+                    { Coursename: "CSS", Grade: "V.Good" }
+                ]
+            });
+
+            stdMap.set('Mohamed', {
+                Grades: [
+                    { Coursename: "JavaScript", Grade: "Excellent" },
+                    { Coursename: "Jquery", Grade: "Good" },
+                    { Coursename: "CSS", Grade: "Good" }
+                ]
+            });
+
+            stdMap.set('Ibrahim', {
+                Grades: [
+                    { Coursename: "JavaScript", Grade: "Good" },
+                    { Coursename: "Jquery", Grade: "Excellent" },
+                    { Coursename: "CSS", Grade: "V.Good" }
+                ]
+            });
+
+
+            // Display each student along with his grades.
+            stdMap.forEach((val, key, stdMap) => {
+                let allGrades = val.Grades;
+                allGrades.forEach(obj => {
+                    console.log(`${key} => ${obj.Coursename} Grade is ${obj.Grade}`);
+                });
+            });
+
+
+
+            //Target Select Box And Options
+            var targetSelect = document.getElementById('select');
+            stdMap.forEach((val, key, stdMap) => {
+                var option = document.createElement('option');
+                option.value = `${key}`;
+                option.innerHTML = `${key}`;
+                targetSelect.appendChild(option);
+            });
+
+            //Target All Elements 
+            var allOptions = document.getElementsByTagName('option');
+            var createdP = document.createElement('p');
+            var targetDiv = document.getElementsByTagName('div')[0];
+            var targetBtn = document.getElementsByTagName('button')[0];
+
+            //Function to show details of any student 
+            targetBtn.addEventListener('click', () => {
+                targetDiv.innerHTML = '';
+                for (i of allOptions) {
+                    if (i.selected) {
+                        var currentStd = stdMap.get(i.value).Grades;
+                        currentStd.forEach(element => {
+                            var createdP = document.createElement('p');
+                            createdP.innerText = `${element.Coursename} Grade Is ${element.Grade}`;
+                            targetDiv.appendChild(createdP);
+                        });
+                    }
+                }
+            })
+
+
+        })//End Of Load Event
+    </script>
+</head>
+
+<body>
+    <select id="select"></select>
+    <button>Show Details</button>
+    <div></div>
+
+</body>
+
+</html>

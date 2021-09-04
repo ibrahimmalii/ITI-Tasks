@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>--- Text Style ---</title>
+
+    <style type="text/css">
+        table#Text {
+            width: 800px;
+            border-collapse: collapse;
+        }
+        
+        table#Text tr {
+            vertical-align: top;
+            width : 200px;
+        }
+        
+        #PAR {
+            font-family: times new roman;
+            font-size: 11pt;
+            width: 550px;
+            border: 3px solid white;
+            padding: 10;
+            text-align: left;
+            margin: 20px auto;
+        }
+        
+        table#Text td {
+            font-family: times new roman;
+            font-size: 11pt;
+        }
+        
+        table {
+            margin: auto;
+        }
+    </style>
+    <script>
+
+        // Target All Arrays With Class Name 
+            
+        var targetpargrap = document.getElementById('PAR');
+        var radios = document.getElementsByName('Font');
+        var targeralign = document.getElementsByName('Align');
+        var targetlinehight = document.getElementsByName('Height');
+        var targetspace = document.getElementsByName('Lspace');
+        var targetchangspace = document.getElementsByName('Indent');
+        var targettransform = document.getElementsByName('Transform');
+        var targetdecoration = document.getElementsByName('Decorate');
+        var targerborder = document.getElementsByName('Border');
+        // var targetcolorborder = document.getElementsByName('BorderColor');
+
+        //======================== Array To Collect All Properties =======================//
+        var styles = [];
+
+    //=============================== Target Elements And Change Properities ================================//
+        targetAndChange = (prop ,arr) => {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].checked) {
+                    styles.push(`${prop} : ${arr[i].value};`);
+                    let properties = styles.join(' ');
+                    document.getElementById('PAR').setAttribute('style' , properties);
+                }
+            }
+        };
+    //========================================= End Of Function ============================================//
+
+    </script>
+</head>
+
+<body>
+
+    <p id="PAR">
+        Here is a paragraph of text that has various alignment characteristics that can be changed dynamically. Click the radio buttons below to view combinations of text style settings.
+    </p>
+
+    <table id="Text" border="1">
+        <tr>
+            <td>
+                <b>fontFamily</b><br />
+                <input type="radio" name="Font" value="couier" onclick="targetAndChange('font-family' , radios)" />courier<br />
+                <input type="radio" name="Font" value="arial" onclick="targetAndChange('font-family' , radios)" />arial<br />
+                <input type="radio" name="Font" value="georgia" onclick="targetAndChange('font-family' , radios)" />georgia<br />
+                <input type="radio" name="Font" value="impact" onclick="targetAndChange('font-family' , radios)" />impact<br />
+                <input type="radio" name="Font" value="times" onclick="targetAndChange('font-family' , radios)" />times new roman<br />
+                <input type="radio" name="Font" value="verdana" onclick="targetAndChange('font-family' , radios)" />verdana<br />
+            </td>
+
+            <td>
+                <b>textAlign</b><br>
+                <input type="radio" name="Align" value="left" onclick="targetAndChange('text-align' , targeralign)" />left<br />
+                <input type="radio" name="Align" value="center" onclick="targetAndChange('text-align' , targeralign)" />center<br />
+                <input type="radio" name="Align" value="right" onclick="targetAndChange('text-align' , targeralign)" />right<br />
+                <input type="radio" name="Align" value="justify" onclick="targetAndChange('text-align' , targeralign)" />justify<br />
+            </td>
+            <td>
+                <b>lineHeight</b><br>
+                <input type="radio" name="Height" value="normal" onclick="targetAndChange('line-height' , targetlinehight)"  />normal<br />
+                <input type="radio" name="Height" value="10px" onclick="targetAndChange('line-height' , targetlinehight)"  />10px<br />
+                <input type="radio" name="Height" value="15px" onclick="targetAndChange('line-height' , targetlinehight)"  />15px<br />
+                <input type="radio" name="Height" value="1.5" onclick="targetAndChange('line-height' , targetlinehight)" />1.5<br />
+            </td>
+            <td>
+                <b>letterSpacing</b><br>
+                <input type="radio" name="Lspace" value="normal" onclick="targetAndChange('letter-spacing' , targetspace)"  />normal<br />
+                <input type="radio" name="Lspace" value="-1px" onclick="targetAndChange('letter-spacing' , targetspace)" />-1px<br />
+                <input type="radio" name="Lspace" value="2px" onclick="targetAndChange('letter-spacing' , targetspace)" />2px<br />
+                <input type="radio" name="Lspace" value="3px" onclick="targetAndChange('letter-spacing' , targetspace)" />3px<br />
+            </td>
+            <td>
+                <b>textIndent</b><br>
+                <input type="radio" name="Indent" value="0px" onclick="targetAndChange('text-indent' , targetchangspace)"  />0px<br />
+                <input type="radio" name="Indent" value="5px" onclick="targetAndChange('text-indent' , targetchangspace)" />5px<br />
+                <input type="radio" name="Indent" value="15px" onclick="targetAndChange('text-indent' , targetchangspace)" />15px<br />
+                <input type="radio" name="Indent" value="25pxgh" onclick="targetAndChange('text-indent' , targetchangspace)" />25px<br />
+            </td>
+            <td>
+                <b>textTransform</b><br>
+                <input type="radio" name="Transform" value="none" onclick="targetAndChange('text-transform' , targettransform)"  />none<br />
+                <input type="radio" name="Transform" value="capitalize" onclick="targetAndChange('text-transform' , targettransform)" />capitalize<br />
+                <input type="radio" name="Transform" value="uppercase" onclick="targetAndChange('text-transform' , targettransform)" />uppercase<br />
+                <input type="radio" name="Transform" value="lowercase" onclick="targetAndChange('text-transform' , targettransform)" />lowercase<br />
+            </td>
+            <td>
+                <b>textDecoration</b><br>
+                <input type="radio" name="Decorate" value="line-through" onclick="targetAndChange('text-decoration' , targetdecoration)" />line-through<br />
+                <input type="radio" name="Decorate" value="none" onclick="targetAndChange('text-decoration' , targetdecoration)"  />none<br />
+                <input type="radio" name="Decorate" value="overline" onclick="targetAndChange('text-decoration' , targetdecoration)" />overline<br />
+                <input type="radio" name="Decorate" value="underline" onclick="targetAndChange('text-decoration' , targetdecoration)" />underline<br />
+            </td>
+            <td>
+                <b>textBorder</b><br>
+                <input type="radio" name="Border" value="none" onclick="targetAndChange('border-style' , targerborder)"  />none<br />
+                <input type="radio" name="Border" value="dotted" onclick="targetAndChange('border-style' , targerborder)" />dotted<br />
+                <input type="radio" name="Border" value="double" onclick="targetAndChange('border-style' , targerborder)" />double<br />
+                <input type="radio" name="Border" value="groove" onclick="targetAndChange('border-style' , targerborder)" />groove<br />
+                <input type="radio" name="Border" value="dashed" onclick="targetAndChange('border-style' , targerborder)" />dashed<br />
+                <input type="radio" name="Border" value="insert" onclick="targetAndChange('border-style' , targerborder)" />insert<br />
+                <input type="radio" name="Border" value="solid" onclick="targetAndChange('border-style' , targerborder)" />solid<br />
+                <input type="radio" name="Border" value="outset" onclick="targetAndChange('border-style' , targerborder)" />outset<br />
+                <input type="radio" name="Border" value="ridge" onclick="targetAndChange('border-style' , targerborder)" />ridge<br />
+            </td>
+            <td>
+                <b>Bordercolor</b><br>
+                <input type="radio" name="BorderColor" value="black" onclick="targetAndChange('border-color' , targetcolorborder)" checked />none<br />
+                <input type="radio" name="BorderColor" value="pink" onclick="targetAndChange('border-color' , targetcolorborder)" />pink<br />
+                <input type="radio" name="BorderColor" value="red" onclick="targetAndChange('border-color' , targetcolorborder)" />red<br />
+                <input type="radio" name="BorderColor" value="green" onclick="targetAndChange('border-color' , targetcolorborder)" />green<br />
+                <input type="radio" name="BorderColor" value="blue" onclick="targetAndChange('border-color' , targetcolorborder)" />blue<br />
+                <input type="radio" name="BorderColor" value="yellow" onclick="targetAndChange('border-color' , targetcolorborder)" />yellow<br />
+                <input type="radio" name="BorderColor" value="purple" onclick="targetAndChange('border-color' , targetcolorborder)" />purple<br />
+            </td>
+
+    </table>
+
+
+
+</body>
+
+</html>
