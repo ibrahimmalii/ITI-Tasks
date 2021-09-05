@@ -13,13 +13,19 @@ map.set('bar' , 2);
 
 
 //3- copy within 
+// let newArr = [];
 // let arr = [0, 2,5,6,7,8,9,10,11];
-// console.log(arr.copyWithin(3,0));
-
+// // console.log(arr.copyWithin(3,1));
+// newArr = arr.copyWithin(3,1)
+// console.log(newArr);
 
 //4- fill()
 // let arr = [0, 2,5,6,7,8,9,10,11];
-// console.log(arr.fill('foo' , 3));
+// // console.log(arr.fill('foo' , 3));
+// var newArr = [1,2,3,4];
+// console.log(arr.fill(newArr , 3));
+
+
 
 
 //5- find and findIndex 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+
+    <script>
+        let firstPromise = new Promise(function (resolve, reject) {
+
+            setTimeout(() => {
+                alert('welcome from first promise');
+                resolve();
+                reject();
+            }, 3000);
+
+        }).then( (again, rejectd) => {
+            img = document.createElement('img');
+            img.src = './1.jpg';
+            document.body.appendChild(img);
+            again();
+            rejectd();
+        }).then(function (resolve, reject) {
+            setTimeout(() => {
+                alert('welcome from second promise');
+                resolve();
+            }, 3000);
+            resolve();
+            reject();
+        });
+
+    </script>
+</body>
+
+</html>
