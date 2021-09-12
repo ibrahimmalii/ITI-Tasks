@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CRUD</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+		<script type="text/javascript" src="/js/crud.js"></script>
+	</head>
+	<body>
+		<h3>Add New Person</h3>
+		<label>Name</label>
+		<input type="text" id="name" name="name"/>
+		<br><br>
+		<label>Age</label>
+		<input type="text" id="age" name="age"/>
+		<br><br>
+		<button id="add">Add new Person</button>
+		<br>
+		<hr>
+		<h3>Persons List</h3>
+		<input type="text" placeholder="search" id="search-item"/>
+		<button id="search">search</button>
+		<br><br>
+		<table id="persons-list" border="1" cellpadding="25">
+			<thead>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Delete</th>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</body>	
+</html>
