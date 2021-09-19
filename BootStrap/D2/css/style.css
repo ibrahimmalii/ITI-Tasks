@@ -1,0 +1,20 @@
+.carousel-item{
+    height: 250px;
+}
+
+.header-title{
+    background-color: lightblue;
+    height:240px;
+}
+
+.img > img{
+    height : 200px ;
+    width: 200px;
+}
+
+.logo{
+    cursor: pointer;
+}
+.logo:hover{
+    background-color: lightcoral;
+}
